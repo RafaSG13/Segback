@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import esi.uclm.model.EntidadDeportiva;
+
 import esi.uclm.model.Usuario;
 import esi.uclm.repositories.UsuarioDao;
 
@@ -56,7 +56,7 @@ public class UsuarioController {
 	}
 
 	@PostMapping("/crearUsuario")
-	public void crearUsuario(@RequestBody Map<String, Object> datosUsuario) {
+	public Usuario crearUsuario(@RequestBody Map<String, Object> datosUsuario) {
 		try {
 			JSONObject json = new JSONObject(datosUsuario);
 			String email = json.getString(EMAIL);
@@ -68,6 +68,7 @@ public class UsuarioController {
 			
 			Usuario usuario = new Usuario(email,dni,nombre,apellido,password,rol);
 			usuarioDao.save(usuario);
+			return usuario;
 			
 		}catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.FORBIDDEN);
@@ -90,7 +91,6 @@ public class UsuarioController {
 			JSONObject json = new JSONObject(datosUsuario);
 			String email = json.getString(EMAIL);
 
-			Usuario user = usuarioDao.findByEmail(email);
 			usuarioDao.deleteByEmail(email);
 
 		} catch (Exception e) {
@@ -100,7 +100,7 @@ public class UsuarioController {
 	
 
 	@PostMapping("/modificarUsuario")
-	public void modificarUsuario(@RequestBody Map<String, Object> datosUsuario) {
+	public Usuario modificarUsuario(@RequestBody Map<String, Object> datosUsuario) {
 		try {
 			JSONObject json = new JSONObject(datosUsuario);
 			String email = json.getString(EMAIL);
@@ -123,7 +123,7 @@ public class UsuarioController {
 				antiguoUsuario.setRol(rol);			
 			
 			usuarioDao.save(antiguoUsuario);
-
+			return antiguoUsuario;
 		} catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		}

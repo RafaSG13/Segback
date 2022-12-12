@@ -3,23 +3,16 @@ package esi.uclm.repositories;
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
-import org.springframework.stereotype.Repository;
-
 import esi.uclm.model.EntidadDeportiva;
 
 
 
 
-@Repository
 public interface EntidadDao extends MongoRepository<EntidadDeportiva, String> {
 
 	EntidadDeportiva findByNumeroRegistro(int numeroRegistro);
 
 	EntidadDeportiva findByNombreEntidad(String nombreEntidad);
-	
-	//@Query("{ 'nombreEntidad' : ?0 }")
-	//List<EntidadDeportiva> findEntidadByNombreEntidadLike(String nombreEntidad);
 
 	List<EntidadDeportiva> findAll();
 	
@@ -35,7 +28,8 @@ public interface EntidadDao extends MongoRepository<EntidadDeportiva, String> {
 
 	void deleteByNumeroRegistro(int numeroRegistro);
 
-	
+
+
 
 	
 
