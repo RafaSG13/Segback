@@ -1,0 +1,8 @@
+esi\uclm\model\EntidadDeportiva.class
+esi\uclm\repositories\UsuarioDao.class
+esi\uclm\model\Usuario.class
+esi\uclm\http\UsuarioController.class
+esi\uclm\http\EntidadController.class
+esi\uclm\SeguridadMongoBackendApplication.class
+esi\uclm\ServletInitializer.class
+esi\uclm\repositories\EntidadDao.class
