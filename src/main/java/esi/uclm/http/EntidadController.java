@@ -113,15 +113,17 @@ public class EntidadController {
 	}
 	
 
+
 	@GetMapping("/buscarEntidadPorNombre")
-	public List<EntidadDeportiva> verEntidadNombreEntidad(@RequestParam String nombreEntidad) {
+	public List<EntidadDeportiva> buscarEntidadPorNombre(@RequestParam String nombreEntidad) {
 		try {
-			List<EntidadDeportiva> entidades = entidadDao.findAllEntidadByNombreEntidadLike(nombreEntidad.toUpperCase());
+			List<EntidadDeportiva> entidades = entidadDao.findAllEntidadByNombreEntidadLike(nombreEntidad);
 			return entidades;
-		}catch(Exception e) {
+		}catch(Exception e) { 
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		}
 	}
+
 	
 
 	@GetMapping("/mostrarEntidadPorNumeroRegistro")

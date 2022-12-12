@@ -16,14 +16,8 @@ public interface EntidadDao extends MongoRepository<EntidadDeportiva, String> {
 
 	List<EntidadDeportiva> findAll();
 	
-	List<EntidadDeportiva> findAllByLocalidad(String Localidad);
-	
-	List<EntidadDeportiva> findAllByProvincia(String provincia);
-
 	List<EntidadDeportiva> findAllByNombreEntidad(String nombreEntidad);
 	
-	List<EntidadDeportiva> findAllByTipo(String tipo);
-
 	List<EntidadDeportiva> findAllEntidadByNombreEntidadLike(String nombreEntidad);
 
 	void deleteByNumeroRegistro(int numeroRegistro);
