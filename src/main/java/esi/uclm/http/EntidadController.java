@@ -43,6 +43,7 @@ public class EntidadController {
 			String localidad = json.getString("localidad");
 			String provincia = json.getString("provincia");
 			
+			
 			List<EntidadDeportiva>entidades = entidadDao.findAll(Sort.by(Sort.Direction.DESC, "numeroRegistro"));
 			
 			int numeroRegistro = entidades.get(0).getNumeroRegistro() +1;
@@ -164,7 +165,6 @@ public class EntidadController {
 	}
 
 	private static EntidadDeportiva createEntidad(String[] attributes) {
-		// TODO Auto-generated method stub
 		int numeroRegistro = Integer.parseInt(attributes[0]);
 		String nombreEntidad = attributes[1];
 		String tipo = attributes[2];
