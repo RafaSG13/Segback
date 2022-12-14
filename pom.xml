@@ -11,7 +11,7 @@
 	<groupId>esi.uclm</groupId>
 	<artifactId>seguridadMongoBackend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>seguridadMongoBackend</name>
 	<description>Serguridad 2022-2023</description>
 	<properties>
@@ -70,31 +70,14 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			 <plugin>
 	        	<groupId>com.heroku.sdk</groupId>
 	        	<artifactId>heroku-maven-plugin</artifactId>
 	        	<version>3.0.6</version>
 	      	</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<executions>
-                <execution>
-                    <phase>package</phase>
-                    <goals><goal>copy</goal></goals>
-                    <configuration>
-                        <artifactItems>
-                            <artifactItem>
-                                <groupId>com.heroku</groupId>
-                                <artifactId>webapp-runner</artifactId>
-                                <version>9.0.69.0</version>
-                                <destFileName>webapp-runner.jar</destFileName>
-                            </artifactItem>
-                        </artifactItems>
-                    </configuration>
-                </execution>
-            </executions>
-			</plugin>
-
 		</plugins>
 	</build>
 
