@@ -65,7 +65,7 @@ public class EntidadController {
 			if(entidad != null) {
 				entidadDao.delete(entidad);
 			}
-			
+			//BORRAR
 
 		} catch (Exception e) {
 				throw new ResponseStatusException(HttpStatus.FORBIDDEN);
