@@ -85,11 +85,8 @@ public class UsuarioController {
 	
 
 	@DeleteMapping("/eliminarUsuario")
-	public void eliminarUsuario(@RequestBody Map<String, Object> datosUsuario) {
+	public void eliminarUsuario(@RequestParam String email) {
 		try {
-
-			JSONObject json = new JSONObject(datosUsuario);
-			String email = json.getString(EMAIL);
 
 			usuarioDao.deleteByEmail(email);
 
